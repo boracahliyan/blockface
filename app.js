@@ -62,6 +62,19 @@ app.get("/users",(req,res) => {
 
 })
 
+app.get("/posts",(req,res) => {
+
+    let posts = [];
+
+    dbconnection.collection("posts")
+    .find().forEach( post => posts.push(post))
+    .then(() => {
+        res.status(200).json(posts)
+    })
+
+})
+
+
 app.post("/users",(req,res) => {
     const new_user = req.body;
 
@@ -73,7 +86,7 @@ app.post("/users",(req,res) => {
     dbconnection.collection("users").insertOne(new_user).then(result => {
         res.status(201).json({
             message: "User created",
-            userId: result.insertId
+            userId: result.insertedId
         });
     })
     .catch(err => {
