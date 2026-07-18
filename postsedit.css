@@ -1,0 +1,157 @@
+/* General Base Setup */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #121214;
+    color: #e1e1e6;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* User Greeting (Welcomer) */
+#welcomer {
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #8257e5; /* Distinct purple accent color */
+    background-color: #1c1c24;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #292938;
+}
+
+/* Main Container */
+#content_block {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Even spacing between individual post cards */
+}
+
+/* Individual Post Box */
+.post_block {
+    background-color: #202024;
+    border: 1px solid #323238;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Allows precise item placements */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.post_block:hover {
+    transform: translateY(-2px);
+    border-color: #41414c;
+}
+
+/* Author Tag (post_writer) */
+.post_block > span {
+    font-size: 0.8rem;
+    color: #c4c4cc;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+}
+
+/* Post Title */
+.post_block h3 {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+/* Post Content Body */
+.post_block p {
+    margin: 0.5rem 0 1.2rem 0;
+    font-size: 1rem;
+    color: #c4c4cc;
+    line-height: 1.6;
+    word-break: break-word; /* Prevents overflow strings */
+}
+
+/* Rewrite the Post Action Link */
+.rewrite_link {
+    align-self: flex-end; /* Pushes the link cleanly to the bottom right corner */
+    background-color: #00b37e; /* Emerald green theme action color */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.rewrite_link:hover {
+    background-color: #008f65;
+}
+
+.rewrite_link:active {
+    transform: scale(0.98);
+}
+
+/* --- Keep your existing style untouched above, just append this at the bottom --- */
+
+/* Top Action Link (Make a new post) styling using your theme colors */
+body > a[href="postmake.html"] {
+    display: inline-block;
+    background-color: #8257e5; /* Using your exact purple accent */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    border: 1px solid #292938;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+body > a[href="postmake.html"]:hover {
+    background-color: #6f42c1;
+}
+
+body > a[href="postmake.html"]:active {
+    transform: scale(0.98);
+}
+
+/* Action alignment container inside the post block */
+.post_block {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Adjusting layout so multiple actions align nicely side-by-side at the bottom right */
+.post_block .rewrite_link {
+    display: inline-block;
+    margin-bottom: 0.5rem; /* Small space between rewrite link and delete button if they stack */
+}
+
+/* Delete Button styled to fit right into your theme */
+.delete_button {
+    align-self: flex-end; /* Align cleanly to the bottom right corner like your link */
+    background-color: #f75a68; /* Crimson danger red */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.delete_button:hover {
+    background-color: #c53e4c;
+}
+
+.delete_button:active {
+    transform: scale(0.98);
+}

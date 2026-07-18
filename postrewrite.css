@@ -1,0 +1,93 @@
+/* Base Reset and Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121214;
+    color: #e1e1e6;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, body > text {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Post Container Wrapper */
+#content_block {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+/* The Dynamically Created Post Block */
+.post_block {
+    background-color: #202024;
+    border: 1px solid #323238;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* The Author Name (Span) */
+.post_block span {
+    font-size: 0.85rem;
+    color: #00b37e;
+    font-weight: bold;
+    align-self: flex-start;
+    background-color: #122922;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+/* Form Inputs (Title & Content) */
+.post_block input,
+.post_block textarea {
+    background-color: #121214;
+    border: 1px solid #323238;
+    border-radius: 4px;
+    color: #e1e1e6;
+    padding: 0.75rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.post_block input:focus {
+    border-color: #00b37e;
+}
+
+/* Make Content field look larger if desired, or keep it consistent */
+.post_block textarea {
+    font-size: 0.95rem;
+    color: #c4c4cc;
+    min-height: 10rem;
+    max-width: 26.5rem;
+    min-width: 26.5rem;
+}
+
+/* Save Changes Button */
+.post_block button {
+    background-color: #00b37e;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.post_block button:hover {
+    background-color: #008f65;
+}

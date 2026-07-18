@@ -1,0 +1,109 @@
+/* Base Reset and Global Styling */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #121214;
+    color: #e1e1e6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Navigation / Menu Bar */
+.menu {
+    width: 100%;
+    background-color: #202024;
+    border-bottom: 1px solid #323238;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.menu a {
+    color: #00b37e; /* Emerald green accent link */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #00b37e;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu a:hover {
+    background-color: #00b37e;
+    color: #ffffff;
+}
+
+/* Logged-In User Welcomer Badge */
+#welcomer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1c1c24;
+    border: 1px solid #292938;
+    color: #8257e5; /* Purple accent for the identity badge */
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+/* Feed Container Layout */
+#content_block {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Even spatial distribution between post elements */
+    box-sizing: border-box;
+}
+
+/* Post Cards Created via JavaScript */
+.post_block {
+    background-color: #202024;
+    border: 1px solid #323238;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.2s ease;
+}
+
+.post_block:hover {
+    border-color: #41414c;
+}
+
+/* Post Creator/Writer Span */
+.post_block > span {
+    font-size: 0.8rem;
+    color: #8257e5;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Post Title Header */
+.post_block h3 {
+    margin: 0.25rem 0 0.75rem 0;
+    font-size: 1.35rem;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+/* Post Content Paragraph */
+.post_block p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #c4c4cc;
+    line-height: 1.6;
+    word-break: break-word;
+}

@@ -100,3 +100,78 @@ app.post("/users",(req,res) => {
 
 })
 
+
+
+app.post("/posts",(req,res) => {
+    const new_post = req.body;
+
+
+    if(!new_post.title || !new_post.content){
+        return res.status(400).json({Error: "Title and content is required"});
+    }
+
+    dbconnection.collection("posts").insertOne(new_post).then(result => {
+        res.status(201).json({
+            message: "Post added",
+            postId: result.insertedId
+        });
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({ Error: "Could not create posts in database" });
+
+
+    })
+
+
+
+})
+
+
+
+
+app.patch("/posts/:id", (req, res) => {
+    const id = req.params.id; 
+    const updates = req.body;
+
+    if (!mongodb.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: "Invalid ID format" });
+    }
+
+    dbconnection.collection("posts")
+    .updateOne(
+        { _id: new mongodb.ObjectId(id) }, 
+        { $set: updates }
+    )
+    .then(result => {
+        if (result.matchedCount === 0) {
+            return res.status(404).json({ error: "Post not found" });
+        }
+        res.status(200).json({ message: "Post updated successfully!" });
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: "Database update failed" });
+    });
+});
+
+app.delete("/posts/:id",(req,res) => {
+    const id = req.params.id;
+
+    if(!mongodb.ObjectId.isValid(id)){
+        return res.status(400).json({error: "Invalid ID format"});
+    }
+
+    dbconnection.collection("posts")
+    .deleteOne({_id: new mongodb.ObjectId(id)})
+    .then(result => {
+        if(result.deletedCount === 0){
+            return res.status(404).json({ message: "Post not found"});
+        }
+        res.status(200).json({message: "Post is deleted"});
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: "Database deletion failed" });
+    })
+});
