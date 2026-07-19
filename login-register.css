@@ -1,144 +1,108 @@
-/* General Layout and Base Reset */
-body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #121214;
-    color: #e1e1e6;
-    margin: 0;
-    padding: 0;
+body{
     display: flex;
+    margin: 0;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
+    background-color: #000000;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    
 }
 
-/* Container for both forms to sit side-by-side on large screens */
-body::after {
-    content: "";
-    display: block;
+.name{
+    color: white;
+    position: absolute;
+    top: 0;
+    font-size: 5rem;
+    
 }
 
-/* Main layouts container behavior if you wrap them, or applied directly */
-body {
-    gap: 3rem;
-    flex-wrap: wrap;
-    padding: 2rem;
+span{
+    color: white;
 }
 
-/* Form Box Configurations (Applies to both Login and Register boxes) */
-.login, .register {
-    background-color: #202024;
-    border: 1px solid #323238;
-    border-radius: 8px;
-    padding: 2.5rem;
-    width: 100%;
-    max-width: 360px;
+.login{
+    margin: 2rem;
+    border-radius: 10px;
     display: flex;
+    min-width: 25rem;
     flex-direction: column;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
+    background-color: #169976;
 }
 
-.login:hover, .register:hover {
-    border-color: #41414c;
+.register{
+    margin: 2rem;
+    border-radius: 10px;
+    display: flex;
+    min-width: 25rem;
+    flex-direction: column;
+    background-color: #169976;
 }
 
-/* Headings inside forms */
-.login h1, .register h1 {
-    margin: 0 0 1.5rem 0;
-    font-size: 1.75rem;
+.login *{
+     margin: .5rem;
+}
+
+.register *{
+     margin: .5rem;
+}
+
+.login input{
+    background-color: #1DCD9F;
+    font-size: 1.2rem;
+}
+
+.register input{
+    background-color: #1DCD9F;
+    font-size: 1.2rem;
+}
+
+.login label{
     color: #ffffff;
-    text-align: center;
-    letter-spacing: 0.5px;
 }
 
-/* Form Input Labels */
-label {
-    font-size: 0.9rem;
-    color: #c4c4cc;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-/* Text Input Fields */
-input[type="text"] {
-    background-color: #121214;
-    border: 1px solid #323238;
-    border-radius: 4px;
-    color: #ffffff !important;
-    font-size: 1rem;
-    padding: 0.75rem;
-    margin-bottom: 1.25rem;
-    outline: none;
-    box-sizing: border-box;
-    width: 100%;
-    transition: border-color 0.2s ease;
-}
-
-input[type="text"]:focus {
-    border-color: #00b37e; /* Emerald focus borders */
-}
-
-/* Form Submission Buttons */
-button {
-    background-color: #00b37e;
+.register label{
     color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.85rem;
+}
+
+#summit_button{
+    align-self: center;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    background-color: #1DCD9F;
+}
+
+#summit_button:hover{
+    background-color: #1bb98f;
+}
+
+#summit_button1{
+    align-self: center;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    background-color: #1DCD9F;
+}
+
+#summit_button1:hover{
+    background-color: #1bb98f;
+}
+
+#info_sec{
+    color: #ffffff;
     font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-button:hover {
-    background-color: #008f65;
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-/* Purple color theme difference for Register button to distinguish actions */
-.register button {
-    background-color: #8257e5;
-}
-
-.register button:hover {
-    background-color: #6f42c1;
-}
-
-.register input[type="text"]:focus {
-    border-color: #8257e5;
-}
-
-/* Dynamic Information Message Boxes (#info_sec and #info_sec1) */
-#info_sec, #info_sec1 {
-    margin-top: 1rem;
-    font-size: 0.875rem;
     text-align: center;
-    min-height: 20px;
-    font-weight: 500;
 }
 
-/* Helper utility classes you can add via JS injection if errors or successes occur */
-.error-msg {
-    color: #f75a68;
+#info_sec1{
+    color: #ffffff;
+    font-size: 1rem;
+    text-align: center;
 }
 
-.success-msg {
-    color: #00b37e;
-}
-
-/* Responsiveness for small displays */
-@media (max-width: 768px) {
-    body {
+@media (max-width: 1000px) {
+    body{
         flex-direction: column;
-        justify-content: flex-start;
-        gap: 2rem;
-        padding: 1.5rem;
+        padding-top: 10rem;
     }
 }

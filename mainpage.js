@@ -2,8 +2,6 @@ const loggeduser = sessionStorage.getItem("loggeduser");
 const content_block = document.querySelector("#content_block");
 
 
-document.querySelector("#welcomer").textContent = loggeduser;
-
 
 function getcontent(){
     return fetch("http://localhost:3000/posts")

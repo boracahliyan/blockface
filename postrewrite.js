@@ -1,6 +1,8 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const postId = urlParams.get('id');
+const menu_button = document.querySelector(".menu_button");
+
 
 
 
@@ -77,3 +79,8 @@ function post_loader(){
 }
 
 post_loader();
+
+
+menu_button.addEventListener("click",() => {
+    window.location.href = "postsedit.html"
+})

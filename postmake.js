@@ -2,9 +2,10 @@ const writer = sessionStorage.getItem("loggeduser");
 const content = document.querySelector(".content");
 const title = document.querySelector(".title");
 const publish_button = document.querySelector(".Publish");
+const menu_button = document.querySelector(".menu_button");
 
 
-document.querySelector(".logged").textContent = writer;
+document.querySelector(".logged").textContent = "Writer: "+ writer;
 
 
 function publish_post(post){
@@ -34,8 +35,12 @@ publish_button.addEventListener("click",() => {
     publish_post(post)
 
     alert("Post is published");
-    window.location.href = "mainpage.html";
+    window.location.href = "postsedit.html";
 
+})
+
+menu_button.addEventListener("click",() => {
+    window.location.href = "postsedit.html"
 })
 
 

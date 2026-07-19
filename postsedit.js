@@ -1,5 +1,6 @@
 const loggeduser = sessionStorage.getItem("loggeduser");
 const content_block = document.querySelector("#content_block");
+const menu_button = document.querySelector(".menu_button");
 
 
 
@@ -80,5 +81,10 @@ function post_loader(){
 }
 
 post_loader();
+
+
+menu_button.addEventListener("click",() => {
+    window.location.href = "mainpage.html"
+})
 
 

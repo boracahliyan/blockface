@@ -1,3 +1,5 @@
+
+
 body{
     display: flex;
     margin: 0;
@@ -6,7 +8,6 @@ body{
     align-items: center;
     background-color: #000000;
     font-size: 1.2rem;
-    font-family: sans-serif;
 }
 
 .menu{
@@ -17,28 +18,15 @@ body{
     align-items: center;
 }
 
-
-.menu a{
+.menu_button{
     border-radius: 15px;
     font-size: 1.5rem;
     background-color: #1DCD9F;
-    color: #000000;
-    text-decoration: none;
-    padding: 0.2rem 1rem;
 }
 
-.menu a:hover{
+.menu_button:hover{
     background-color: #1bb98f;
 }
-
-
-#content_block{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-}
-
 
 .post_block{
     margin-top: 2rem;
@@ -50,7 +38,32 @@ body{
     background-color: #169976;
 }
 
+.post_block > :not(span){
+    background-color: #1DCD9F;
+}
 
-.post_block *{
-     margin-left: .5rem;
+.post_block > *{
+     margin: .5rem;
+}
+
+.title{
+    width: 70%;
+    font-size: 1.5rem;
+}
+
+.content{
+    min-height: 12rem;
+    max-width: 95%;
+    min-width: 95%;
+    font-size: 1.2rem;
+}
+
+.Publish{
+    align-self: center;
+    font-size: 2rem;
+    border-radius: 15px;
+}
+
+.Publish:hover{
+    background-color: #1bb98f;
 }
