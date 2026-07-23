@@ -103,8 +103,8 @@ app.post("/posts",(req,res) => {
     const new_post = req.body;
 
 
-    if(!new_post.title || !new_post.content){
-        return res.status(400).json({Error: "Title and content is required"});
+    if(!new_post.title){
+        return res.status(400).json({Error: "Title required"});
     }
 
     dbconnection.collection("posts").insertOne(new_post).then(result => {
