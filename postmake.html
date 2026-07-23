@@ -3,19 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOCKFACE - Create Post</title>
+    
+    <!-- Windows 7 CSS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+    
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="postmake.css">
 </head>
-<body >
-    <div class="menu"><button class="menu_button">Go Back</button></div>
-    
-    <div class="post_block">
-        <span class="logged"></span>
-        <hr>
-        <input type="text" class="title" placeholder="title">
-        <textarea name="content" class="content" placeholder="You can write here"></textarea>
-        <button class="Publish">Publish</button>
-    </div>
+<body>
 
+    <!-- Top Navigation / Taskbar -->
+    <nav class="win-nav">
+        <div class="nav-container">
+            <span class="brand-title">BLOCKFACE</span>
+            <button class="win-btn menu_button">Go Back</button>
+        </div>
+    </nav>
+
+    <!-- Main Creation Window -->
+    <main class="main-container">
+        <div class="window post_block">
+            <div class="title-bar">
+                <div class="title-bar-text">New Post Creation</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            
+            <div class="window-body">
+                <div class="logged-info">
+                    <span class="logged"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="post-title">Title:</label>
+                    <input type="text" id="post-title" class="title" placeholder="Enter post title...">
+                </div>
+
+                <div class="field-group">
+                    <label for="post-content">Content:</label>
+                    <textarea id="post-content" name="content" class="content" placeholder="Write your post here..."></textarea>
+                </div>
+
+                <button type="button" class="win-btn Publish">Publish</button>
+            </div>
+        </div>
+    </main>
 
     <script type="module" src="postmake.js"></script>
 </body>

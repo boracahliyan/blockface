@@ -6,7 +6,7 @@ const publish_button = document.querySelector(".Publish");
 const menu_button = document.querySelector(".menu_button");
 
 
-document.querySelector(".logged").textContent = "Writer: "+ writer;
+document.querySelector(".logged").textContent = "Author: "+ writer;
 
 
 function publish_post(post){

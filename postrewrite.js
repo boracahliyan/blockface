@@ -20,18 +20,57 @@ function getcontent(){
 
 function post_maker(element){
 
+   // Create Window Container
     const post = document.createElement("div");
+    post.classList.add("window", "post_block");
+
+    // Title Bar Structure
+    const titleBar = document.createElement("div");
+    titleBar.classList.add("title-bar");
+
+    const titleText = document.createElement("div");
+    titleText.classList.add("title-bar-text");
+    titleText.textContent = `Edit Post — ${element.adder || "Anonymous"}`;
+
+    const titleControls = document.createElement("div");
+    titleControls.classList.add("title-bar-controls");
+    titleControls.innerHTML = `
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+    `;
+
+    titleBar.appendChild(titleText);
+    titleBar.appendChild(titleControls);
+
+    // Window Body
+    const windowBody = document.createElement("div");
+    windowBody.classList.add("window-body");
+
+    // Title Input Group
+    const titleGroup = document.createElement("div");
+    titleGroup.classList.add("field-group");
+    const titleLabel = document.createElement("label");
+    titleLabel.textContent = "Title:";
     const post_header = document.createElement("input");
-    const post_content = document.createElement("textarea");
-    const post_writer = document.createElement("span");
-    const save_button = document.createElement("button");
-
-
-    post.classList.add("post_block");
-
+    post_header.type = "text";
     post_header.value = element.title;
+    titleGroup.appendChild(titleLabel);
+    titleGroup.appendChild(post_header);
+
+    // Content Textarea Group
+    const contentGroup = document.createElement("div");
+    contentGroup.classList.add("field-group");
+    const contentLabel = document.createElement("label");
+    contentLabel.textContent = "Content:";
+    const post_content = document.createElement("textarea");
     post_content.value = element.content;
-    post_writer.textContent = element.adder;
+    contentGroup.appendChild(contentLabel);
+    contentGroup.appendChild(post_content);
+
+    // Save Button
+    const save_button = document.createElement("button");
+    save_button.classList.add("win-btn", "save_btn");
     save_button.textContent = "Save Changes";
 
     save_button.addEventListener("click", () => {
@@ -58,13 +97,14 @@ function post_maker(element){
         .catch(err => console.error("Error updating post:", err));
     });
 
-    
+    // Assemble Body
+    windowBody.appendChild(titleGroup);
+    windowBody.appendChild(contentGroup);
+    windowBody.appendChild(save_button);
 
-    post.appendChild(post_writer);
-    post.appendChild(post_header);
-    post.appendChild(post_content);
-    post.appendChild(save_button);
-    
+    // Assemble Full Window
+    post.appendChild(titleBar);
+    post.appendChild(windowBody);
 
     content_block.prepend(post);
 

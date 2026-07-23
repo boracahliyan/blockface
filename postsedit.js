@@ -38,40 +38,73 @@ function delete_post(post_id){
 
 function post_maker(element){
 
+// Create Main Window Container
     const post = document.createElement("div");
-    const post_header = document.createElement("h3");
-    const post_content = document.createElement("p");
-    const post_writer = document.createElement("span");
+    post.classList.add("window", "post_block");
+
+    // Title Bar Structure
+    const titleBar = document.createElement("div");
+    titleBar.classList.add("title-bar");
+
+    const titleText = document.createElement("div");
+    titleText.classList.add("title-bar-text");
+    titleText.textContent = `Author: ${element.adder || "Anonymous"}`;
+
+    const titleControls = document.createElement("div");
+    titleControls.classList.add("title-bar-controls");
+    titleControls.innerHTML = `
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+    `;
+
+    titleBar.appendChild(titleText);
+    titleBar.appendChild(titleControls);
+
+    // Window Body
+    const windowBody = document.createElement("div");
+    windowBody.classList.add("window-body");
+
+    // Action Controls Container
+    const actionsContainer = document.createElement("div");
+    actionsContainer.classList.add("post_actions");
+
     const post_edit = document.createElement("a");
-    const post_delete = document.createElement("button");
-
-
-    post.classList.add("post_block");
-    post_edit.classList.add("rewrite_link");
-    post_delete.classList.add("delete_button");
-
-
-    post_header.textContent = element.title;
-    post_content.textContent = element.content;
-    post_writer.textContent = element.adder;
+    post_edit.classList.add("win-btn", "rewrite_link");
     post_edit.href = `postrewrite.html?id=${element._id}`;
-    post_edit.textContent = "rewrite the post";
-    post_delete.textContent = "Delete post";
+    post_edit.textContent = "Rewrite Post";
 
-    post.appendChild(post_writer);
-    post.appendChild(post_edit);
-    post.appendChild(post_delete);
-    post.appendChild(post_header);
-    post.appendChild(post_content);
-    
+    const post_delete = document.createElement("button");
+    post_delete.classList.add("win-btn", "delete_button");
+    post_delete.textContent = "Delete Post";
+
+    actionsContainer.appendChild(post_edit);
+    actionsContainer.appendChild(post_delete);
+
+    // Headers & Content
+    const post_header = document.createElement("h3");
+    post_header.classList.add("post_header");
+    post_header.textContent = element.title;
+
+    const post_content = document.createElement("p");
+    post_content.classList.add("post_content");
+    post_content.textContent = element.content;
+
+    // Assemble Window Body
+    windowBody.appendChild(actionsContainer);
+    windowBody.appendChild(post_header);
+    windowBody.appendChild(post_content);
+
+    // Assemble Full Window
+    post.appendChild(titleBar);
+    post.appendChild(windowBody);
 
     content_block.prepend(post);
 
-
-    post_delete.addEventListener("click",() => {
+    // Event Listener
+    post_delete.addEventListener("click", () => {
         delete_post(element._id);
-    })
-
+    });
 }
 
 function post_loader(){

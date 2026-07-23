@@ -1,69 +1,145 @@
-
-
-body{
-    display: flex;
+/* --- GLOBAL LAYOUT & BACKGROUND --- */
+body {
     margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    background: url('https://i.pinimg.com/736x/25/aa/1a/25aa1a16b78d63f639b04b8427d4f2d6.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* --- TOP NAVIGATION BAR --- */
+.win-nav {
+    width: 100%;
+    background: rgba(16, 28, 45, 0.75);
+    backdrop-filter: blur(0.625rem);
+    -webkit-backdrop-filter: blur(0.625rem);
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.75rem 0;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 62.5rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.125rem;
+    text-shadow: 0 0 0.625rem rgba(0, 162, 232, 0.9);
+}
+
+.win-btn {
+    text-decoration: none;
+    color: #000000 !important;
+    background: linear-gradient(180deg, #ffffff 0%, #e1e1e1 50%, #cccccc 100%);
+    border: 0.0625rem solid #707070;
+    border-radius: 0.25rem;
+    padding: 0.4rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: inset 0 0.0625rem 0 #ffffff, 0 0.125rem 0.25rem rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.win-btn:hover {
+    background: linear-gradient(180deg, #f2f2f2 0%, #d4d4d4 50%, #bbbbbb 100%);
+    box-shadow: 0 0 0.5rem rgba(0, 162, 232, 0.8);
+}
+
+/* --- MAIN CONTAINER --- */
+.main-container {
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
-    font-size: 1.2rem;
-}
-
-.menu{
-    background-color: #222222;
-    display: flex;
     width: 100%;
-    height: 5rem;
-    align-items: center;
+    padding: 2.5rem 0;
 }
 
-.menu_button{
-    border-radius: 15px;
-    font-size: 1.5rem;
-    background-color: #1DCD9F;
+/* --- WINDOW 7 CREATION CARD --- */
+.post_block {
+    width: 35rem;
+    max-width: 90vw;
+    box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.6);
 }
 
-.menu_button:hover{
-    background-color: #1bb98f;
-}
-
-.post_block{
-    margin-top: 2rem;
-    border-radius: 10px;
+.window-body {
+    padding: 1.25rem;
     display: flex;
-    min-width: 30rem;
-    width: 40%;
     flex-direction: column;
-    background-color: #169976;
+    gap: 1rem;
 }
 
-.post_block > :not(span){
-    background-color: #1DCD9F;
+.logged-info {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #003366;
+    border-bottom: 0.0625rem solid #d9d9d9;
+    padding-bottom: 0.5rem;
 }
 
-.post_block > *{
-     margin: .5rem;
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
-.title{
-    width: 70%;
-    font-size: 1.5rem;
+.field-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
 }
 
-.content{
-    min-height: 12rem;
-    max-width: 95%;
-    min-width: 95%;
-    font-size: 1.2rem;
+.title {
+    width: 100%;
+    font-size: 1.1rem !important;
+    padding: 0.5rem !important;
+    box-sizing: border-box;
 }
 
-.Publish{
-    align-self: center;
-    font-size: 2rem;
-    border-radius: 15px;
+.content {
+    width: 100%;
+    min-height: 14rem;
+    font-size: 1.05rem !important;
+    padding: 0.5rem !important;
+    resize: vertical;
+    box-sizing: border-box;
+    font-family: inherit;
 }
 
-.Publish:hover{
-    background-color: #1bb98f;
+.Publish {
+    align-self: flex-end;
+    font-size: 1.05rem !important;
+    padding: 0.5rem 1.5rem !important;
+    margin-top: 0.5rem;
+}
+
+/* --- RESPONSIVE MOBILE TWEAKS --- */
+@media (max-width: 30rem) {
+    .brand-title {
+        font-size: 1.2rem;
+    }
+
+    .win-btn {
+        font-size: 0.875rem;
+        padding: 0.3rem 0.75rem;
+    }
+
+    .post_block {
+        width: 95vw;
+    }
 }
