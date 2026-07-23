@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://blockface.onrender.com";
 const loggeduser = sessionStorage.getItem("loggeduser");
 const content_block = document.querySelector("#content_block");
 const menu_button = document.querySelector(".menu_button");
@@ -7,22 +8,22 @@ const menu_button = document.querySelector(".menu_button");
 
 
 function getcontent(){
-    return fetch("http://localhost:3000/posts")
+    return fetch(`${API_BASE_URL}/posts`)
     .then(raw_data => {
         if(!raw_data.ok)
-            throw new Error("Can not accest the network")
+            throw new Error("Cannot accest the network")
         return raw_data.json();
     });
 }
 
 function delete_post(post_id){
     if(confirm("Are you sure about deleting this post?")){
-        fetch(`http://localhost:3000/posts/${post_id}`,{
+        fetch(`${API_BASE_URL}/posts/${post_id}`,{
             method: "DELETE"
         })
         .then(res =>{ 
             if(res.ok){
-                alert("Post is deleted"),
+                alert("Post is deleted");
                 window.location.reload();
             }else{
                 alert("Failed to delete post.")

@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://blockface.onrender.com";
 const writer = sessionStorage.getItem("loggeduser");
 const content = document.querySelector(".content");
 const title = document.querySelector(".title");
@@ -9,7 +10,7 @@ document.querySelector(".logged").textContent = "Writer: "+ writer;
 
 
 function publish_post(post){
-    fetch("http://localhost:3000/posts",{
+    return fetch(`${API_BASE_URL}/posts`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(post)
@@ -32,10 +33,11 @@ publish_button.addEventListener("click",() => {
 
     const post = post_maker();
 
-    publish_post(post)
-
-    alert("Post is published");
-    window.location.href = "postsedit.html";
+   publish_post(post)
+        .then(() => {
+            alert("Post is published");
+            window.location.href = "postsedit.html";
+        })
 
 })
 

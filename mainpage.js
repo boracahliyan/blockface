@@ -1,10 +1,11 @@
+const API_BASE_URL = "https://blockface.onrender.com";
 const loggeduser = sessionStorage.getItem("loggeduser");
 const content_block = document.querySelector("#content_block");
 
 
 
 function getcontent(){
-    return fetch("http://localhost:3000/posts")
+    return fetch(`${API_BASE_URL}/posts`)
     .then(raw_data => {
         if(!raw_data.ok)
             throw new Error("Can not accest the network")

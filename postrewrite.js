@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://blockface.onrender.com";
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const postId = urlParams.get('id');
@@ -7,7 +8,7 @@ const menu_button = document.querySelector(".menu_button");
 
 
 function getcontent(){
-    return fetch("http://localhost:3000/posts")
+    return fetch(`${API_BASE_URL}/posts`)
     .then(raw_data => {
         if(!raw_data.ok)
             throw new Error("Can not accest the network")
@@ -39,7 +40,7 @@ function post_maker(element){
             content: post_content.value
         };
 
-        fetch(`http://localhost:3000/posts/${postId}`, {
+        fetch(`${API_BASE_URL}/posts/${postId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
