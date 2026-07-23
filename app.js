@@ -26,21 +26,18 @@ let db;
 
 
 //db connection
+const PORT = process.env.PORT || 3000;
 
 connectToDb((err) => {
     if(err == null){
-
-        app.listen(3000, () => {
-            console.log("App listenin at port 3000");
-    
+        app.listen(PORT, () => {
+            console.log(`App listening at port ${PORT}`);
         });
-
         db = getDb();
-       
-    }else{
-        console.log("It is not connect")
+    } else {
+        console.log("It is not connected")
     }
-})
+});
 
 
 //init app & middleware

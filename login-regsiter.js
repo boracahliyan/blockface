@@ -1,3 +1,6 @@
+const API_BASE_URL = "https://blockface.onrender.com";
+
+
 const button = document.querySelector("#summit_button");
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
@@ -11,7 +14,7 @@ const password_R = document.querySelector("#password1");
 
 
 function getusers(){
-    return fetch("http://localhost:3000/users")
+    return fetch(`${API_BASE_URL}/users`)
     .then(raw_data => {
         if(!raw_data.ok)
             throw new Error("Can not accest the network")
@@ -103,7 +106,7 @@ function new_user_writer(user_placeholder,pass_placeholder){
 
 function upload_user(new_user){
 
-    fetch("http://localhost:3000/users",{
+    fetch(`${API_BASE_URL}/users`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(new_user)  
