@@ -3,39 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BLOCKFACE - Windows 7 Edition</title>
+    
+    <!-- Windows 7 CSS Kütüphanesi -->
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+    
+    <!-- Senin Kendi CSS Dosyan -->
     <link rel="stylesheet" href="login-register.css">
 </head>
 <body>
 
-    <h1 class="name">BLOCKFACE</h1>
+    <!-- Süslü Windows 7 Aero Başlığı -->
+    <h1 class="aero-title">BLOCKFACE</h1>
 
-    <div class="login">
-        <h1>Login</h1>
-        <label for="username">Username</label>
-        <input type="text" id="username">
-        <label for="password">Password:</label>
-        <input type="text" id="password">
-       <button type="button" id="summit_button">Enter</button>
-       <div id="info_sec"></div>
+    <div class="main-container">
+        
+        <!-- LOGIN PENCERESİ -->
+        <div class="window auth-window" id="login-box">
+            <div class="title-bar">
+                <div class="title-bar-text">Login - Blockface</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="field-row-stacked">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username">
+                </div>
+                <div class="field-row-stacked">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password">
+                </div>
+                
+                <button type="button" id="summit_button">Enter</button>
+                <div id="info_sec"></div>
+
+                <!-- Sayfa Değiştirme Butonu -->
+                <div class="switch-box">
+                    <span>Don't have an account?</span>
+                    <button type="button" class="switch-btn" id="show-register">Register Here</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTER PENCERESİ (Varsayılan olarak gizli) -->
+        <div class="window auth-window hidden" id="register-box">
+            <div class="title-bar">
+                <div class="title-bar-text">Register - Blockface</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="field-row-stacked">
+                    <label for="username1">Username:</label>
+                    <input type="text" id="username1">
+                </div>
+                <div class="field-row-stacked">
+                    <label for="password1">Password:</label>
+                    <input type="text" id="password1">
+                </div>
+                
+                <button type="button" id="summit_button1">Enter</button>
+                <div id="info_sec1"></div>
+
+                <!-- Sayfa Değiştirme Butonu -->
+                <div class="switch-box">
+                    <span>Already have an account?</span>
+                    <button type="button" class="switch-btn" id="show-login">Login Here</button>
+                </div>
+            </div>
+        </div>
 
     </div>
-
-    <span>OR</span>
-
-     <div class="register">
-        <h1>Register</h1>
-        <label for="username">Username</label>
-        <input type="text" id="username1">
-        <label for="password">Password:</label>
-        <input type="text" id="password1">
-       <button type="button" id="summit_button1">Enter</button>
-       <div id="info_sec1"></div>
-
-    </div>
-
-
-
 
     <script type="module" src="login-regsiter.js"></script>
 </body>
