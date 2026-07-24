@@ -20,11 +20,11 @@ function getcontent(){
 
 function post_maker(element){
 
-   // Create Window Container
+   
     const post = document.createElement("div");
     post.classList.add("window", "post_block");
 
-    // Title Bar Structure
+    
     const titleBar = document.createElement("div");
     titleBar.classList.add("title-bar");
 
@@ -43,11 +43,11 @@ function post_maker(element){
     titleBar.appendChild(titleText);
     titleBar.appendChild(titleControls);
 
-    // Window Body
+    
     const windowBody = document.createElement("div");
     windowBody.classList.add("window-body");
 
-    // Title Input Group
+   
     const titleGroup = document.createElement("div");
     titleGroup.classList.add("field-group");
     const titleLabel = document.createElement("label");
@@ -58,7 +58,7 @@ function post_maker(element){
     titleGroup.appendChild(titleLabel);
     titleGroup.appendChild(post_header);
 
-    // Content Textarea Group
+   
     const contentGroup = document.createElement("div");
     contentGroup.classList.add("field-group");
     const contentLabel = document.createElement("label");
@@ -68,7 +68,7 @@ function post_maker(element){
     contentGroup.appendChild(contentLabel);
     contentGroup.appendChild(post_content);
 
-    // Save Button
+   
     const save_button = document.createElement("button");
     save_button.classList.add("win-btn", "save_btn");
     save_button.textContent = "Save Changes";
@@ -97,12 +97,12 @@ function post_maker(element){
         .catch(err => console.error("Error updating post:", err));
     });
 
-    // Assemble Body
+
     windowBody.appendChild(titleGroup);
     windowBody.appendChild(contentGroup);
     windowBody.appendChild(save_button);
 
-    // Assemble Full Window
+  
     post.appendChild(titleBar);
     post.appendChild(windowBody);
 

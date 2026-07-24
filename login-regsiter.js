@@ -1,16 +1,15 @@
-// Kutuları ve Geçiş Butonlarını Seçme
+
 const loginBox = document.querySelector("#login-box");
 const registerBox = document.querySelector("#register-box");
 const showRegisterBtn = document.querySelector("#show-register");
 const showLoginBtn = document.querySelector("#show-login");
 
-// Register Butonuna Tıklanınca
 showRegisterBtn.addEventListener("click", () => {
     loginBox.classList.add("hidden");
     registerBox.classList.remove("hidden");
 });
 
-// Login Butonuna Tıklanınca
+
 showLoginBtn.addEventListener("click", () => {
     registerBox.classList.add("hidden");
     loginBox.classList.remove("hidden");

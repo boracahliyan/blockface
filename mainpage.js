@@ -15,11 +15,11 @@ function getcontent(){
 
 
 function post_maker(element){
-// Create Main Window Container
+
     const post = document.createElement("div");
     post.classList.add("window", "post_block");
 
-    // Title Bar Structure
+    
     const titleBar = document.createElement("div");
     titleBar.classList.add("title-bar");
 
@@ -38,7 +38,7 @@ function post_maker(element){
     titleBar.appendChild(titleText);
     titleBar.appendChild(titleControls);
 
-    // Window Body
+    
     const windowBody = document.createElement("div");
     windowBody.classList.add("window-body");
 
@@ -53,7 +53,7 @@ function post_maker(element){
     windowBody.appendChild(post_header);
     windowBody.appendChild(post_content);
 
-    // Assemble Window
+   
     post.appendChild(titleBar);
     post.appendChild(windowBody);
 

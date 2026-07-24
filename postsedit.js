@@ -38,11 +38,11 @@ function delete_post(post_id){
 
 function post_maker(element){
 
-// Create Main Window Container
+
     const post = document.createElement("div");
     post.classList.add("window", "post_block");
 
-    // Title Bar Structure
+
     const titleBar = document.createElement("div");
     titleBar.classList.add("title-bar");
 
@@ -61,11 +61,11 @@ function post_maker(element){
     titleBar.appendChild(titleText);
     titleBar.appendChild(titleControls);
 
-    // Window Body
+  
     const windowBody = document.createElement("div");
     windowBody.classList.add("window-body");
 
-    // Action Controls Container
+    
     const actionsContainer = document.createElement("div");
     actionsContainer.classList.add("post_actions");
 
@@ -81,7 +81,7 @@ function post_maker(element){
     actionsContainer.appendChild(post_edit);
     actionsContainer.appendChild(post_delete);
 
-    // Headers & Content
+  
     const post_header = document.createElement("h3");
     post_header.classList.add("post_header");
     post_header.textContent = element.title;
@@ -90,18 +90,18 @@ function post_maker(element){
     post_content.classList.add("post_content");
     post_content.textContent = element.content;
 
-    // Assemble Window Body
+  
     windowBody.appendChild(actionsContainer);
     windowBody.appendChild(post_header);
     windowBody.appendChild(post_content);
 
-    // Assemble Full Window
+  
     post.appendChild(titleBar);
     post.appendChild(windowBody);
 
     content_block.prepend(post);
 
-    // Event Listener
+
     post_delete.addEventListener("click", () => {
         delete_post(element._id);
     });
