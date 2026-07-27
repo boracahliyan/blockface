@@ -59,9 +59,11 @@ body {
 }
 
 
-
-.window-body{
-    padding: 1rem;
+.window-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 

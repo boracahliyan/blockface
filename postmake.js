@@ -2,6 +2,7 @@ const API_BASE_URL = "https://blockface.onrender.com";
 const writer = sessionStorage.getItem("loggeduser");
 const content = document.querySelector(".content");
 const title = document.querySelector(".title");
+const image = document.querySelector(".image");
 const publish_button = document.querySelector(".Publish");
 const menu_button = document.querySelector(".menu_button");
 
@@ -23,6 +24,7 @@ function post_maker(){
     return{
         title: title.value,
         content: content.value,
+        image: image.value,
         adder: writer
     }
 

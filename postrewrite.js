@@ -58,6 +58,16 @@ function post_maker(element){
     titleGroup.appendChild(titleLabel);
     titleGroup.appendChild(post_header);
 
+
+    const imageGroup = document.createElement("div");
+    imageGroup.classList.add("field-group");
+    const imageLabel = document.createElement("label");
+    imageLabel.textContent = "Image:";
+    const image_url = document.createElement("input");
+    image_url.type = "text";
+    image_url.value = element.image;
+    imageGroup.appendChild(imageLabel);
+    imageGroup.appendChild(image_url);
    
     const contentGroup = document.createElement("div");
     contentGroup.classList.add("field-group");
@@ -76,6 +86,7 @@ function post_maker(element){
     save_button.addEventListener("click", () => {
         const updatedPost = {
             title: post_header.value,
+            image: image_url.value,
             content: post_content.value
         };
 
@@ -99,6 +110,7 @@ function post_maker(element){
 
 
     windowBody.appendChild(titleGroup);
+    windowBody.appendChild(imageGroup);
     windowBody.appendChild(contentGroup);
     windowBody.appendChild(save_button);
 

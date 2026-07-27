@@ -86,6 +86,10 @@ function post_maker(element){
     post_header.classList.add("post_header");
     post_header.textContent = element.title;
 
+    
+    const post_image = document.createElement("img");
+    post_image.src = element.image;
+
     const post_content = document.createElement("p");
     post_content.classList.add("post_content");
     post_content.textContent = element.content;
@@ -93,6 +97,7 @@ function post_maker(element){
   
     windowBody.appendChild(actionsContainer);
     windowBody.appendChild(post_header);
+    windowBody.appendChild(post_image);
     windowBody.appendChild(post_content);
 
   
