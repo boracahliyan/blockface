@@ -54,15 +54,27 @@ function post_maker(element){
     post_content.classList.add("post_content");
     post_content.textContent = element.content;
 
+    const comment_button = document.createElement("button");
+    comment_button.classList.add("win-btn");
+    comment_button.classList.add("comment-button");
+    comment_button.textContent = "Comments"
+
+
     windowBody.appendChild(post_header);
     windowBody.appendChild(post_image);
     windowBody.appendChild(post_content);
+    windowBody.appendChild(comment_button);
 
    
     post.appendChild(titleBar);
     post.appendChild(windowBody);
 
     content_block.prepend(post);
+
+    comment_button.addEventListener("click", () => {
+    window.location.href = `comments.html?id=${element._id}`;
+    });
+
 
 }
 

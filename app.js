@@ -172,3 +172,43 @@ app.delete("/posts/:id",(req,res) => {
         res.status(500).json({ error: "Database deletion failed" });
     })
 });
+
+
+
+// Yorumları Çekme (Sadece ilgili post'un yorumları)
+app.get("/comments/:postId", (req, res) => {
+    const postId = req.params.postId;
+    let comments = [];
+
+    dbconnection.collection("comments")
+    .find({ postId: postId })
+    .forEach(comment => comments.push(comment))
+    .then(() => {
+        res.status(200).json(comments);
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: "Could not fetch comments" });
+    });
+});
+
+// Yeni Yorum Ekleme
+app.post("/comments", (req, res) => {
+    const new_comment = req.body;
+
+    // Yorum metni, post ID'si ve yorum yapan kişi eksikse hata ver
+    if(!new_comment.postId || !new_comment.text || !new_comment.commenter){
+        return res.status(400).json({Error: "Missing comment data"});
+    }
+
+    dbconnection.collection("comments").insertOne(new_comment).then(result => {
+        res.status(201).json({
+            message: "Comment added",
+            commentId: result.insertedId
+        });
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({ Error: "Could not create comment in database" });
+    });
+});
