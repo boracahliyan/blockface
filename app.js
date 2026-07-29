@@ -212,3 +212,28 @@ app.post("/comments", (req, res) => {
         res.status(500).json({ Error: "Could not create comment in database" });
     });
 });
+
+
+app.patch("/posts/:id/like", (req, res) => {
+    const id = req.params.id;
+
+    if (!mongodb.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: "Invalid ID format" });
+    }
+
+    dbconnection.collection("posts")
+    .updateOne(
+        { _id: new mongodb.ObjectId(id) },
+        { $inc: { likes: 1 } }
+    )
+    .then(result => {
+        if (result.matchedCount === 0) {
+            return res.status(404).json({ error: "Post not found" });
+        }
+        res.status(200).json({ message: "Post liked successfully!" });
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: "Failed to update likes" });
+    });
+});
