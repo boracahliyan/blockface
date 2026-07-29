@@ -54,22 +54,52 @@ function post_maker(element){
     post_content.classList.add("post_content");
     post_content.textContent = element.content;
 
-    const comment_button = document.createElement("button");
-    comment_button.classList.add("win-btn");
-    comment_button.classList.add("comment-button");
-    comment_button.textContent = "Comments"
+   // --- EKLENEN KISIM: Action Bar (Like + Comment Butonları Kutusu) ---
+    const actions_bar = document.createElement("div");
+    actions_bar.classList.add("post_actions_bar");
 
+    // Like Butonu
+    let likesCount = element.likes || 0;
+    const like_button = document.createElement("button");
+    like_button.classList.add("win-btn", "like_button");
+    like_button.textContent = `👍 Like (${likesCount})`;
+
+    // Comment Butonu
+    const comment_button = document.createElement("button");
+    comment_button.classList.add("win-btn", "comment-button");
+    comment_button.textContent = "Comments";
+
+    actions_bar.appendChild(like_button);
+    actions_bar.appendChild(comment_button);
+    
+    // -----------------------------------------------------------------
 
     windowBody.appendChild(post_header);
     windowBody.appendChild(post_image);
     windowBody.appendChild(post_content);
-    windowBody.appendChild(comment_button);
+    windowBody.appendChild(actions_bar);
 
    
     post.appendChild(titleBar);
     post.appendChild(windowBody);
 
     content_block.prepend(post);
+
+
+    like_button.addEventListener("click", () => {
+        fetch(`${API_BASE_URL}/posts/${element._id}/like`, {
+            method: "PATCH"
+        })
+        .then(res => {
+            if (res.ok) {
+                likesCount += 1;
+                like_button.textContent = `👍 Like (${likesCount})`;
+            } else {
+                alert("Failed to like post.");
+            }
+        })
+        .catch(err => console.error("Error liking post:", err));
+    });
 
     comment_button.addEventListener("click", () => {
     window.location.href = `comments.html?id=${element._id}`;
