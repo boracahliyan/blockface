@@ -175,7 +175,7 @@ app.delete("/posts/:id",(req,res) => {
 
 
 
-// Yorumları Çekme (Sadece ilgili post'un yorumları)
+
 app.get("/comments/:postId", (req, res) => {
     const postId = req.params.postId;
     let comments = [];
@@ -192,11 +192,11 @@ app.get("/comments/:postId", (req, res) => {
     });
 });
 
-// Yeni Yorum Ekleme
+
 app.post("/comments", (req, res) => {
     const new_comment = req.body;
 
-    // Yorum metni, post ID'si ve yorum yapan kişi eksikse hata ver
+
     if(!new_comment.postId || !new_comment.text || !new_comment.commenter){
         return res.status(400).json({Error: "Missing comment data"});
     }

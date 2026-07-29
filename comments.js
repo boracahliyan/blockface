@@ -2,18 +2,18 @@ const API_BASE_URL = "https://blockface.onrender.com";
 const loggeduser = sessionStorage.getItem("loggeduser");
 const content_block = document.querySelector("#content_block");
 
-// URL'den post id'sini al
+
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('id');
 
-// Tüm verileri çekip işleyecek ana fonksiyon
+
 function load_page_content() {
     if (!postId) {
-        content_block.innerHTML = "<h2 style='color: white;'>No Post ID found!</h2>";
+        content_block.innerHTML = "<h2 style='color: white;'>No Post ID found</h2>";
         return;
     }
 
-    // 1. Önce Postu çek ve renderla
+
     fetch(`${API_BASE_URL}/posts`)
         .then(res => res.json())
         .then(posts => {
@@ -23,13 +23,13 @@ function load_page_content() {
                 render_comment_form();
                 load_comments();
             } else {
-                content_block.innerHTML = "<h2 style='color: white;'>Post not found!</h2>";
+                content_block.innerHTML = "<h2 style='color: white;'>Post not found</h2>";
             }
         })
         .catch(err => console.error("Error fetching post:", err));
 }
 
-// Ana Postu Ekrana Basan Fonksiyon
+
 function render_main_post(element) {
     const post = document.createElement("div");
     post.classList.add("window", "post_block");
@@ -78,7 +78,7 @@ function render_main_post(element) {
     content_block.appendChild(post);
 }
 
-// Yorum Yazma Formunu Oluşturan Fonksiyon (Kullanıcı Adı GİZLİ)
+
 function render_comment_form() {
     const formWindow = document.createElement("div");
     formWindow.classList.add("window", "comment_section");
@@ -93,7 +93,7 @@ function render_comment_form() {
     const windowBody = document.createElement("div");
     windowBody.classList.add("window-body");
 
-    // Sadece textarea var, kullanıcı adı inputu yok
+    
     const comment_input = document.createElement("textarea");
     comment_input.classList.add("comment-input-area");
     comment_input.placeholder = "What are your thoughts?";
@@ -110,7 +110,7 @@ function render_comment_form() {
 
         const newComment = {
             postId: postId,
-            commenter: loggeduser || "Anonymous", // Logged user burada otomatik alınıyor
+            commenter: loggeduser || "Anonymous",
             text: comment_input.value
         };
 
@@ -123,8 +123,8 @@ function render_comment_form() {
         })
         .then(res => {
             if (res.ok) {
-                comment_input.value = ""; // Textarea'yı temizle
-                load_comments(); // Yorumları yeniden yükle (sayfa yenilemeden)
+                comment_input.value = "";
+                load_comments();
             } else {
                 alert("Failed to post comment.");
             }
@@ -140,9 +140,9 @@ function render_comment_form() {
     content_block.appendChild(formWindow);
 }
 
-// Veritabanından Yorumları Çekip Ekrana Basan Fonksiyon
+
 function load_comments() {
-    // Önce eski yorumları temizleyelim ki üst üste binmesin
+    
     const existingComments = document.querySelectorAll(".comment-item");
     existingComments.forEach(comment => comment.remove());
 
@@ -177,5 +177,5 @@ function load_comments() {
         .catch(err => console.error("Error loading comments:", err));
 }
 
-// Sayfa yüklendiğinde her şeyi başlat
+
 load_page_content();
