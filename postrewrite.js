@@ -108,11 +108,17 @@ function post_maker(element){
         .catch(err => console.error("Error updating post:", err));
     });
 
+    const comment_button = document.createElement("button");
+    comment_button.classList.add("win-btn");
+    comment_button.classList.add("comment-button");
+    comment_button.textContent = "Comments"
+
 
     windowBody.appendChild(titleGroup);
     windowBody.appendChild(imageGroup);
     windowBody.appendChild(contentGroup);
     windowBody.appendChild(save_button);
+    windowBody.appendChild(comment_button);
 
   
     post.appendChild(titleBar);
