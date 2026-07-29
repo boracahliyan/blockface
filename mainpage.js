@@ -54,17 +54,17 @@ function post_maker(element){
     post_content.classList.add("post_content");
     post_content.textContent = element.content;
 
-   // --- EKLENEN KISIM: Action Bar (Like + Comment Butonları Kutusu) ---
+   
     const actions_bar = document.createElement("div");
     actions_bar.classList.add("post_actions_bar");
 
-    // Like Butonu
+    
     let likesCount = element.likes || 0;
     const like_button = document.createElement("button");
     like_button.classList.add("win-btn", "like_button");
     like_button.textContent = `👍 Like (${likesCount})`;
 
-    // Comment Butonu
+    
     const comment_button = document.createElement("button");
     comment_button.classList.add("win-btn", "comment-button");
     comment_button.textContent = "Comments";
@@ -72,7 +72,7 @@ function post_maker(element){
     actions_bar.appendChild(like_button);
     actions_bar.appendChild(comment_button);
     
-    // -----------------------------------------------------------------
+   
 
     windowBody.appendChild(post_header);
     windowBody.appendChild(post_image);

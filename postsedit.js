@@ -95,18 +95,30 @@ function post_maker(element){
     post_content.textContent = element.content;
 
 
-    const comment_button = document.createElement("button");
-    comment_button.classList.add("win-btn");
-    comment_button.classList.add("comment-button");
-    comment_button.textContent = "Comments"
+    const actions_bar = document.createElement("div");
+    actions_bar.classList.add("post_actions_bar");
 
+    
+    let likesCount = element.likes || 0;
+    const like_button = document.createElement("button");
+    like_button.classList.add("win-btn", "like_button");
+    like_button.textContent = `👍 Like (${likesCount})`;
+
+    
+    const comment_button = document.createElement("button");
+    comment_button.classList.add("win-btn", "comment-button");
+    comment_button.textContent = "Comments";
+
+    actions_bar.appendChild(like_button);
+    actions_bar.appendChild(comment_button);
+    
 
   
     windowBody.appendChild(actionsContainer);
     windowBody.appendChild(post_header);
     windowBody.appendChild(post_image);
     windowBody.appendChild(post_content);
-    windowBody.appendChild(comment_button);
+    windowBody.appendChild(actions_bar);
 
   
     post.appendChild(titleBar);

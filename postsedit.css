@@ -112,6 +112,20 @@ body {
 }
 
 
+.post_actions_bar {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 0.0625rem solid #e0e0e0;
+}
+
+.like_btn {
+    cursor: pointer;
+    user-select: none;
+}
+
+
 @media (max-width: 30rem) {
     .win-btn {
         font-size: 0.875rem;
@@ -122,3 +136,4 @@ body {
         width: 95vw;
     }
 }
+
